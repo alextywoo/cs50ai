@@ -48,16 +48,15 @@ knowledge2 = And(
 # B says "A said 'I am a knave'."
 # B says "C is a knave."
 # C says "A is a knight."
-knowledge3 = And(Or(And(AKnight,Not(AKnave)), And(AKnave,Not(AKnight))),
-                 Or(And(BKnight,Not(BKnave)), And(BKnave,Not(BKnight))),
-                 Or(And(CKnight,Not(CKnave)), And(CKnave,Not(CKnight))),
-                 Or(And(BKnight, CKnave), And(BKnave, CKnight)),
-                 Or(And(CKnight, AKnight), And(CKnave, AKnave)),
-                 Or(And(BKnight, Or(And(AKnight, BKnave), And(AKnave, Not(BKnave)))),
-                    And(BKnave, Not(Or(And(AKnight, BKnave), And(AKnave, Not(BKnave)))))),
+knowledge3 = And(Or(AKnight, AKnave), And(AKnight,Not(AKnave)),
+                 Or(And(BKnave), And(BKnight, AKnave)),
+                 Or(And(BKnight,CKnave), And(BKnave, CKnight)),
+                 Or(And(CKnave,BKnight), And(CKnight, BKnave)),
+                 Or(And(AKnight, CKnight), And(AKnave, CKnave))
+)
 
     # TODO
-)
+
 
 
 def main():
